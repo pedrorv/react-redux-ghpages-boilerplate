@@ -11,11 +11,12 @@ import About from 'About'
 import reducers from './reducers'
 
 const createStoreWithMiddleware = applyMiddleware()(createStore)
+const store = createStoreWithMiddleware(reducers)
 
 require('./styles/app.scss')
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/react-redux-ghpages-boilerplate" component={Main}>
         <Route path="about" component={About} />
